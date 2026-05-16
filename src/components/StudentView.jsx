@@ -64,7 +64,7 @@ export default function StudentView() {
 
   const fetchData = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/sentences');
+      const res = await axios.get('/api/sentences');
       setSentences(res.data);
     } catch (err) {
       toast.error('Failed to load assignments');
@@ -84,7 +84,7 @@ export default function StudentView() {
     if (!translationText.trim() || !activeSentence) return;
     
     try {
-      await axios.put(`http://localhost:5000/api/sentences/${activeSentence._id}/translate`, {
+      await axios.put(`/api/sentences/${activeSentence._id}/translate`, {
         studentTranslation: translationText.trim()
       });
       toast.success('Translation submitted successfully!');

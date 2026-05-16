@@ -43,6 +43,35 @@ app.post('/api/sentences', async (req, res) => {
   }
 });
 
+// Delete a sentence
+app.delete('/api/sentences/:id', async (req, res) => {
+  try {
+    const sentence = await Sentence.findByIdAndDelete(req.params.id);
+    if (!sentence) return res.status(404).json({ error: 'Sentence not found' });
+    res.json({ message: 'Sentence deleted' });
+  } catch (err) {
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+// Edit a sentence
+app.put('/api/sentences/:id', async (req, res) => {
+  try {
+    const { text, hints } = req.body;
+    const sentence = await Sentence.findById(req.params.id);
+    
+    if (!sentence) return res.status(404).json({ error: 'Sentence not found' });
+    
+    sentence.text = text;
+    if (hints) sentence.hints = hints;
+    
+    await sentence.save();
+    res.json(sentence);
+  } catch (err) {
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
 // Student submits their Azerbaijani translation
 app.put('/api/sentences/:id/translate', async (req, res) => {
   try {
@@ -80,5 +109,9 @@ app.put('/api/sentences/:id/grade', async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+if (process.env.NODE_ENV !== 'production') {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+}
+
+export default app;

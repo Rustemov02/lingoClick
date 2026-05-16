@@ -21,7 +21,7 @@ const DashboardLayout = ({ children }) => {
             </h1>
           </Link>
           
-          <div className="flex items-center gap-4">
+          {/* <div className="flex items-center gap-4">
             {!isAdmin ? (
               <Link
                 to="/admin"
@@ -38,7 +38,7 @@ const DashboardLayout = ({ children }) => {
                 Go to Student View
               </Link>
             )}
-          </div>
+          </div> */}
         </div>
       </header>
 
