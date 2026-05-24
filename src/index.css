@@ -27,6 +27,30 @@
   @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-xl rounded-2xl;
 }
 
+/* Student translate: mətn + textarea eyni ekranda (mobil) */
+.translate-workspace {
+  @apply max-md:fixed max-md:inset-x-0 max-md:top-16 max-md:bottom-0 max-md:z-40;
+  @apply max-md:flex max-md:flex-col max-md:bg-gray-50 max-md:px-4 max-md:pb-4;
+  max-md:height: calc(100dvh - 4rem);
+  max-md:max-height: calc(100dvh - 4rem);
+}
+
+.translate-split-panel {
+  @apply max-md:flex-1 max-md:min-h-0 max-md:flex max-md:flex-col max-md:overflow-hidden;
+  @apply max-md:rounded-2xl max-md:border max-md:border-gray-200/80 max-md:shadow-lg max-md:bg-white;
+  @apply md:overflow-hidden;
+}
+
+.translate-source-pane {
+  @apply bg-indigo-50/90 border-b border-indigo-100/80 p-3 md:p-6;
+  @apply max-md:flex-[1_1_42%] max-md:min-h-0 max-md:overflow-y-auto max-md:overscroll-contain;
+}
+
+.translate-form-pane {
+  @apply p-3 md:p-6 bg-white;
+  @apply max-md:flex-[1_1_58%] max-md:min-h-0 max-md:flex max-md:flex-col max-md:shrink-0;
+}
+
 .word-tooltip-enter {
   opacity: 0;
   transform: translateY(10px) scale(0.95);

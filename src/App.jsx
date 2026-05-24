@@ -21,12 +21,12 @@ const DashboardLayout = ({ children }) => {
             </h1>
           </Link>
           
-          {/* <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4">
             {!isAdmin ? (
               <Link
                 to="/admin"
                 className="flex items-center gap-2 p-2 text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors"
-                title="Admin Dashboard"
+                title="Admin paneli"
               >
                 <Settings className="w-5 h-5" />
               </Link>
@@ -35,10 +35,10 @@ const DashboardLayout = ({ children }) => {
                 to="/"
                 className="text-sm font-medium text-gray-500 hover:text-indigo-600 transition-colors"
               >
-                Go to Student View
+                Tələbə görünüşü
               </Link>
             )}
-          </div> */}
+          </div>
         </div>
       </header>
 
